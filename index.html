@@ -5,20 +5,43 @@
     <meta charset="UTF-8">
     <title>This is a Test</title>
     <script type="text/javascript">
-        window.onload = function () {
-            var canvas = document.getElementById("myCanvas");
-            var context = canvas.getContext("2d");
-            var imageObj = new Image();
-            imageObj.onload = function () {
-                context.drawImage(imageObj, 10, 10);
-                context.font = "40pt Calibri";
-                context.fillText("My TEXT!", 20, 20);
-            };
-            imageObj.src = "darth-vader.jpg";
-        };
+        function main() {
+            let ht = document.getElementById("ht").value;
+            let wid = document.getElementById("wid").value;
+            let disp = document.getElementById("disp");
+            let canvas = document.createElement('canvas');
+            let context = canvas.getContext("2d");
+            let container = document.createElement('div');
+            document.body.appendChild(container);
+            container.appendChild(canvas);
+            canvas.width = wid;
+            canvas.height = ht;
+            context.fillStyle = "black";
+            context.fillRect(0, 0, wid, ht);
+            context.font = "12px Times New Roman";
+            context.fillStyle = "green";
+            for(let x = 0; x < wid; x += 72){
+                for(let y = 0; y < ht; y += 24) {
+                    context.fillText("Hello world! ", x, y)
+                }
+            }
+        }
     </script>
 </head>
 
 <body>
+    <!-- <script>
+        let cx = document.querySelector("canvas").getContext("2d");
+        cx.font = "28px Georgia";
+        cx.fillStyle = "fuchsia";
+        cx.fillText("I can draw text, too!", 10, 50);
+    </script> -->
+    <label htmlfor="ht">Height: </label>
+    <input type="number" name="ht" id="ht" />
+    <label htmlfor="wid">Width: </label>
+    <input type="number" name="wid" id="wid" />
+    <button onclick="main()">Submit</button>
+    <hr />
+</body>
 
 </html>
