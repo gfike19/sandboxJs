@@ -6,11 +6,14 @@
         <script type="text/javascript">
             function test() {
                     let print = document.getElementById("print");
-                    print.innerHTML = "testing testing 1 2 3";
+                    let words = document.querySelector("input[name=words]");
+                    print.innerHTML = words.value;
                 }
         </script>
     </head>
-    <body> 
+    <body>
+        <label for="words">Enter some text: </label>
+        <input type="text" name="words" id="words"/> 
         <button onclick="test()" name="butt" id="butt">Submit</button>
         <br>
         <span name="print" id="print"></span>
