@@ -20,23 +20,47 @@
             context.fillRect(0, 0, wid, ht);
             context.font = "12px Times New Roman";
             context.fillStyle = "green";
-            for(let x = 0; x < wid; x += 72){
-                for(let y = 0; y < ht; y += 24) {
-                    context.fillText("Hello world! ", x, y)
-                }
-            }
+            let msg = "Hello world!";
+            let idx = 0;
+
+            // produces text that is even
+            // for(let x = 0; x < wid; x += 72){
+            //     for(let y = 0; y < ht; y += 24) {
+            //         context.fillText("Hello world! ", x, y)
+            //     }
+            // }
+            
+            // TTB
+            // for(let x = 0; x < wid; x += 18){
+            //     for(let y = 0; y < ht; y += 18) {
+            //         context.fillText(msg[idx], x, y)
+            //         idx++;
+
+            //         if(idx > msg.length -1){
+            //             idx = 0;
+            //         }
+            //     }
+            // }
+            
+            // RTL
+            // for(let x = 0; x < ht; x += 18){
+            //     for(let y = 0; y < wid; y += 18) {
+            //         context.fillText(msg[idx], y, x)
+            //         idx++;
+
+            //         if(idx > msg.length -1){
+            //             idx = 0;
+            //         }
+            //     }
+            // }
+
+
         }
     </script>
 </head>
 
 <body>
-    <!-- <script>
-        let cx = document.querySelector("canvas").getContext("2d");
-        cx.font = "28px Georgia";
-        cx.fillStyle = "fuchsia";
-        cx.fillText("I can draw text, too!", 10, 50);
-    </script> -->
-    <label htmlfor="ht">Height: </label>
+<label htmlfor="ht">Height: </label>
     <input type="number" name="ht" id="ht" />
     <label htmlfor="wid">Width: </label>
     <input type="number" name="wid" id="wid" />
